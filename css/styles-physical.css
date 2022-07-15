@@ -1,0 +1,155 @@
+@font-face {
+  /* esto permite usar fuentes especiales que no todo navegador tiene. Para que el usuario vea el diseño exactamente igual */
+  font-family: charter;
+  src: url(../fonts/charter-regular.otf) ;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: charter;
+  src: url(../fonts/charter-italic.otf) ;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: charter;
+  src: url(../fonts/charter-bold.otf) ;
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: charter;
+  src: url(../fonts/charter-bold-italic.otf) ;
+  font-style: italic;
+  font-weight: bold;
+}
+
+:root {
+  font-size: 18px;
+/* con -- nombre de variable : y asignacion de un valor, podemos declarar variables en css para reutilizarlas */
+  --gris30: #212121;
+  --gris20: #212429;
+  --gris10: #616161;
+}
+
+body {
+  color: var(--gris30);
+  /* font-family: charter; */
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+
+}
+
+a {
+  color: var(--gris30)
+}
+
+header {
+  /* --gris10: red;  con esto pdemos alterar el color ya establecido, revalorando la variable sólo para esta etiqueta */
+  font-size: 14px;
+  color: var(--gris10);
+}
+
+header a {
+  color: var(--gris10);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--gris30);
+}
+
+nav details summary {
+  font-weight: bold
+}
+
+h1 {
+  font-size: 60px;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  /* margin: top right bottom left; <<<< esto es según las coordenadas lógicas - en sentido horario*/
+  /* margin: 64px 10px 16px 10px; EJEMPLO AGREGANDO 10PX A LOS COSTADOS*/
+
+}
+
+h1 ~ p {
+  margin-bottom: 64px;
+}
+
+hr {
+  margin: 64px 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 64px 0 40px;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-weight: normal;
+}
+
+pre {
+  background: #FEC62E;
+}
+
+blockquote {
+  margin: 32px 0;
+}
+
+.hero {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, .3), transparent), url(../images/pattern.png);
+  /* background-repeat: no-repeat;  ESTO ES PARA QUE LA IMAGEN NO SE REPITA */
+  height: 350px;
+}
+
+.section-content + hr {
+  display: none;
+}
+
+.section-content {
+  margin-top: 164px;
+}
+
+.section-content:first-of-type {
+  margin: 0;
+}
+
+.section-content ol li {
+  line-height: 24px;
+}
+
+.section-content ul li {
+  margin-bottom: 16px;
+}
+
+.section-content {
+  counter-reset: titleList;
+}
+
+.section-content h3 {
+  counter-increment: titleList;
+}
+
+.section-content h3::before {
+  content: counter(titleList, decimal) ". ";
+}
+
+.section-content h3::after {
+  content: "";
+  width: 32px;
+  height: 4px;
+  background: var(--gris30);
+  display: inline-block;
+}
+
+.section-content img {
+  margin-top: 40px;
+}
